@@ -81,8 +81,8 @@ node *deletefromBST(node *root, int val)
             delete root;
             return NULL; // returning null to parent as there were no child
         }
-        // 1 child : (left child or right child)
 
+        // 1 child : (left child or right child)
         // left child
         if (root->left != NULL && root->right == NULL)
         {
@@ -121,6 +121,7 @@ node *deletefromBST(node *root, int val)
     }
 return root;
 }
+
 void levelordertraversal(node *root)
 {
     queue<node *> q;
