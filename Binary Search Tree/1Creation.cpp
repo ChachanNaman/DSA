@@ -4,6 +4,7 @@
 #include <queue>
 using namespace std;
 //level order traversal for printing tree
+
 class node
 {
 public:
@@ -38,6 +39,7 @@ node *insertintoBST(node *root, int d)
     return root;
 
 }
+
 void takeinput(node *&root)
 {
     int data;
@@ -49,6 +51,7 @@ void takeinput(node *&root)
          cin >> data;
     }
 }
+
 void levelordertraversal(node * root)
 {
     queue<node *> q;
@@ -80,6 +83,7 @@ void levelordertraversal(node * root)
         }
     }
 }
+
 void inorder(node* &root){
     if(root == NULL){
         return;
