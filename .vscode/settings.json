@@ -27,6 +27,9 @@
         "valarray": "cpp",
         "algorithm": "cpp",
         "chrono": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "barrier": "cpp",
+        "latch": "cpp",
+        "semaphore": "cpp"
     }
 }

@@ -28,3 +28,5 @@ class Solution {
         return solveTab(n ,arr);
     }
 };
+
+ [5, 8, 3, 7, 9, 1]

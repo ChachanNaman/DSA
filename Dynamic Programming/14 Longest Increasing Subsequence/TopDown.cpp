@@ -33,3 +33,5 @@ class Solution {
         return solveMem(n , arr , 0, -1, dp);
     }
 };
+
+[3, 10, 2, 1, 20]
