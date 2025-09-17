@@ -1,6 +1,7 @@
 https://leetcode.com/problems/minimum-swaps-to-make-sequences-increasing/description/
 https://www.youtube.com/watch?v=IeT9Qz_vqHo&list=PLDzeHZWIZsTomOPnCiU3J95WufjE36wsb&index=23
 //helloo 
+//jii
 class Solution {
 public:
     // int solveRec(vector<int>& nums1, vector<int>& nums2, int index, bool swapped){
