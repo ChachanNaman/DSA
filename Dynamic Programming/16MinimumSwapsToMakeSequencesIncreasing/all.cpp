@@ -94,6 +94,10 @@ public:
 //             }
 //         return dp[1][0];
 //    }
+
+    The extra row at dp[n][*] is for the base case when recursion would hit index == n:
+    we explicitly allocate an extra row dp[n][0] = dp[n][1] = 0 to represent that base case.
+
    int solveOpt(vector<int>& nums1, vector<int>& nums2){
         int n = nums1.size();
         int swap = 0;
@@ -149,3 +153,142 @@ public:
         return solveOpt(nums1, nums2);
     }
 };
+
+
+
+//BOTTOM UP -> 
+Iteration: index = 4
+
+Prev = nums1[3]=5, nums2[3]=3
+
+Case swapped=0 (previous index NOT swapped)
+
+prev1=5, prev2=3
+
+No swap at 4
+Check: nums1[4]=4 > 5 ❌ → invalid
+→ do nothing
+
+Swap at 4
+Check: nums1[4]=4 > prev2=3 ✅ and nums2[4]=7 > prev1=5 ✅ → valid
+Cost = 1 + dp[5][1] = 1 + 0 = 1
+ans = 1
+
+So dp[4][0] = 1
+
+Case swapped=1 (previous index WAS swapped)
+
+Now we swap prev values → prev1=3, prev2=5
+
+No swap at 4
+Check: 4 > 3 ✅ and 7 > 5 ✅ → valid
+Cost = dp[5][0] = 0
+ans = 0
+
+Swap at 4
+Check: 4 > 5 ❌ → invalid
+
+So dp[4][1] = 0
+
+✅ After index=4:
+
+dp[4][0] = 1
+dp[4][1] = 0
+
+Iteration: index = 3
+
+Prev = nums1[2]=3, nums2[2]=2
+Case swapped=0
+prev1=3, prev2=2
+No swap
+5 > 3 ✅ and 3 > 2 ✅ → valid
+Cost = dp[4][0] = 1
+ans = 1
+
+Swap
+5 > 2 ✅ and 3 > 3 ❌ → invalid
+So dp[3][0] = 1
+
+Case swapped=1
+prev1=2, prev2=3
+No swap
+5 > 2 ✅ and 3 > 3 ❌ → invalid
+Swap
+5 > 3 ✅ and 3 > 2 ✅ → valid
+Cost = 1 + dp[4][1] = 1 + 0 = 1
+ans = 1
+So dp[3][1] = 1
+
+✅ After index=3:
+dp[3][0] = 1
+dp[3][1] = 1
+
+
+Iteration: index = 2
+
+Prev = nums1[1]=1, nums2[1]=1
+
+Case swapped=0
+
+prev1=1, prev2=1
+
+No swap
+3 > 1 ✅ and 2 > 1 ✅ → valid
+Cost = dp[3][0] = 1
+
+Swap
+3 > 1 ✅ and 2 > 1 ✅ → valid
+Cost = 1 + dp[3][1] = 1 + 1 = 2
+ans = min(1,2) = 1
+
+So dp[2][0] = 1
+
+Case swapped=1
+
+prev1=1, prev2=1 (same here because values are equal)
+
+Same logic → ans = 1
+
+So dp[2][1] = 1
+
+✅ After index=2:
+
+dp[2][0] = 1
+dp[2][1] = 1
+
+Iteration: index = 1
+
+Prev = nums1[0]=-1, nums2[0]=-1
+
+Case swapped=0
+
+prev1=-1, prev2=-1
+
+No swap
+1 > -1 ✅ and 1 > -1 ✅ → valid
+Cost = dp[2][0] = 1
+
+Swap
+1 > -1 ✅ and 1 > -1 ✅ → valid
+Cost = 1 + dp[2][1] = 1 + 1 = 2
+ans = min(1,2) = 1
+
+So dp[1][0] = 1
+
+Case swapped=1
+
+prev1=-1, prev2=-1
+
+Same checks → ans = 1
+
+So dp[1][1] = 1
+
+✅ After index=1:
+
+dp[1][0] = 1
+dp[1][1] = 1
+
+Final Answer
+
+We return dp[1][0] = 1
+
