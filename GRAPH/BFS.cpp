@@ -1,5 +1,6 @@
 //https://www.geeksforgeeks.org/problems/bfs-traversal-of-graph/1?page=1&category=Graph&sortBy=submissions
-
+//TC -> O(N) + 0(3N)
+//SC -> BFS + QUEUE + ADJ LIST -> O(3N) -> O(N)
 
 class Solution
 {
